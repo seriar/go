@@ -266,6 +266,19 @@ func TestCanFinish(t *testing.T) {
 			},
 			expected: false,
 		},
+		{
+			name: "Car cannot finish the track with partial move (part of batteryDrain)",
+			car: Car{
+				speed:        2,
+				batteryDrain: 200,
+				battery:      100,
+				distance:     0,
+			},
+			track: Track{
+				distance: 1,
+			},
+			expected: false,
+		},
 	}
 
 	for _, tt := range tests {
