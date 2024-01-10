@@ -253,6 +253,19 @@ func TestCanFinish(t *testing.T) {
 			},
 			expected: false,
 		},
+		{
+			name: "Car cannot finish the track distance with initial battery less than 100% and traveled distance is not 0",
+			car: Car{
+				speed:        4,
+				batteryDrain: 5,
+				battery:      25,
+				distance:     1,
+			},
+			track: Track{
+				distance: 21,
+			},
+			expected: false,
+		},
 	}
 
 	for _, tt := range tests {
